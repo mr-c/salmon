@@ -759,12 +759,12 @@ if (NOT LIBSTADENIO_FOUND)
   message("==================================================================")
   externalproject_add(libstadenio
     DOWNLOAD_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external
-    DOWNLOAD_COMMAND curl -k -L https://github.com/COMBINE-lab/staden-io_lib/archive/v1.14.8.1.tar.gz -o staden-io_lib-v1.14.8.tar.gz &&
-      ${SHASUM} f6f30eefa478cfb708f3109a35fb6ffa0e24951d9d971985df2cef5919dd0bc3 staden-io_lib-v1.14.8.tar.gz &&
-      mkdir -p staden-io_lib-1.14.8 &&
-      tar -xzf staden-io_lib-v1.14.8.tar.gz --strip-components=1 -C staden-io_lib-1.14.8 &&
+    DOWNLOAD_COMMAND curl -k -L https://github.com/jkbonfield/io_lib/releases/download/io_lib-1-14-12/io_lib-1.14.12.tar.gz -o staden-io_lib-v1.14.12.tar.gz &&
+      ${SHASUM} bc0c5ed688f59a522ef02aafc7c34359f44024d4763599b92030d60bbc5c3415 staden-io_lib-v1.14.12.tar.gz &&
+      mkdir -p staden-io_lib-1.14.12 &&
+      tar -xzf staden-io_lib-v1.14.12.tar.gz --strip-components=1 -C staden-io_lib-1.14.12 &&
       rm -fr staden-io_lib &&
-      mv -f staden-io_lib-1.14.8 staden-io_lib
+      mv -f staden-io_lib-1.14.12 staden-io_lib
     SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/staden-io_lib
     INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/external/install
     CONFIGURE_COMMAND ./configure --enable-shared=no --without-libcurl --prefix=<INSTALL_DIR> LDFLAGS=${LIBSTADEN_LDFLAGS} CFLAGS=${LIBSTADEN_CFLAGS} CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER}
